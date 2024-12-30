@@ -15,6 +15,11 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 # Inherit from X01BD device
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
+# Inherit some common crDroid stuff
+TARGET_SUPPORTS_QUICK_TAP  := true
+TARGET_SUPPORTS_CALL_RECORDING := true
+TARGET_INCLUDE_PIXEL_CHARGER := true
+
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_X01BD
 PRODUCT_DEVICE := X01BD
@@ -25,6 +30,4 @@ PRODUCT_MANUFACTURER := asus
 PRODUCT_GMS_CLIENTID_BASE := android-asus
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_DEVICE=ASUS_X01BD \
-    PRODUCT_NAME=WW_X01BD
-
+    DeviceProduct=ASUS_X01BD
