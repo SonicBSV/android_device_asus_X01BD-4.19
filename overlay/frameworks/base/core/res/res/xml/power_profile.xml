@@ -38,13 +38,13 @@
         <value>1843200</value>
     </array>
     <array name="cpu.core_power.cluster0">
-        <value>31</value>
-        <value>61.5</value>
-        <value>68</value>
-        <value>79</value>
-        <value>98.6</value>
-        <value>110.6</value>
-        <value>117</value>
+        <value>47</value>
+        <value>75</value>
+        <value>100</value>
+        <value>136</value>
+        <value>174</value>
+        <value>214</value>
+        <value>236</value>
     </array>
     <array name="cpu.core_speeds.cluster1">
         <value>1113600</value>
@@ -55,12 +55,12 @@
         <value>2208000</value>
     </array>
     <array name="cpu.core_power.cluster1">
-        <value>124.4</value>
-        <value>156</value>
-        <value>210</value>
-        <value>260</value>
-        <value>309</value>
-        <value>362.5</value>
+        <value>270</value>
+        <value>350</value>
+        <value>513</value>
+        <value>670</value>
+        <value>803</value>
+        <value>979</value>
     </array>
     <item name="cpu.awake">13.7</item>
     <item name="cpu.idle">4.5</item>
