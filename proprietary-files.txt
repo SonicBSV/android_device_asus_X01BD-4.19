@@ -1,5 +1,8 @@
 # Device proprietary files - from UL-ASUS_X01BD-WW-17.2018.2012.434-user build, unless pinned
 
+# Current blobs with ELF checks disabled:
+# libmmcamera_faceproc, libmmcamera_faceproc2 depends on NDK libc and build is unable to resolve its symbols
+
 # Audio ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
 vendor/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb
@@ -49,9 +52,10 @@ vendor/lib/libmmcamera2_sensor_modules.so
 vendor/lib/libmmcamera2_stats_algorithm.so
 vendor/lib/libmmcamera2_stats_lib.so
 vendor/lib/libmmcamera2_stats_modules.so
+vendor/lib/libmmcamera_ar1337.so
+vendor/lib/libmmcamera_ar1337_eeprom.so
 vendor/lib/libmmcamera_arcsoftbokeh_lib.so
 vendor/lib/libmmcamera_bokeh.so
-vendor/lib/libmmcamera_csidtg.so
 vendor/lib/libmmcamera_dbg.so
 vendor/lib/libmmcamera_depth_map.so
 vendor/lib/libmmcamera_dummyalgo.so
@@ -59,8 +63,8 @@ vendor/lib/libmmcamera_eebinparse.so
 vendor/lib/libmmcamera_eeprom_util.so
 vendor/lib/libmmcamera_eztune_module.so
 vendor/lib/libmmcamera_facedetection_lib.so
-vendor/lib/libmmcamera_faceproc2.so
-vendor/lib/libmmcamera_faceproc.so
+vendor/lib/libmmcamera_faceproc2.so;DISABLE_CHECKELF
+vendor/lib/libmmcamera_faceproc.so;DISABLE_CHECKELF
 vendor/lib/libmmcamera_gc5025_ofilm_13m_fm24c64d_eeprom.so
 vendor/lib/libmmcamera_gc5025_ofilm_13m.so
 vendor/lib/libmmcamera_gc5025.so
@@ -79,6 +83,8 @@ vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_pdaf.so
 vendor/lib/libmmcamera_ppbase_module.so
 vendor/lib/libmmcamera_quadracfa.so
+vendor/lib/libmmcamera_s5k5e9_slave_back_p24c64e_eeprom.so
+vendor/lib/libmmcamera_s5k5e9yu05.so
 vendor/lib/libmmcamera_stillmore_lib.so
 vendor/lib/libmmcamera_sw2d_lib.so
 vendor/lib/libmmcamera_thread_services.so
@@ -101,11 +107,37 @@ vendor/lib/libseemore.so
 vendor/lib/libactuator_imx486_holitech_12m.so
 
 # Camera Chromatix
-vendor/lib/libchromatix_csidtg_common.so
-vendor/lib/libchromatix_csidtg_cpp_preview.so
-vendor/lib/libchromatix_csidtg_postproc.so
-vendor/lib/libchromatix_csidtg_preview.so
-vendor/lib/libchromatix_csidtg_zsl_preview.so
+vendor/lib/libchromatix_ar1337_common.so
+vendor/lib/libchromatix_ar1337_cpp_ds_chromatix.so
+vendor/lib/libchromatix_ar1337_cpp_hfr_60.so
+vendor/lib/libchromatix_ar1337_cpp_hfr_90.so
+vendor/lib/libchromatix_ar1337_cpp_hfr_120.so
+vendor/lib/libchromatix_ar1337_cpp_liveshot.so
+vendor/lib/libchromatix_ar1337_cpp_preview.so
+vendor/lib/libchromatix_ar1337_cpp_snapshot.so
+vendor/lib/libchromatix_ar1337_cpp_us_chromatix.so
+vendor/lib/libchromatix_ar1337_cpp_video.so
+vendor/lib/libchromatix_ar1337_cpp_video_full.so
+vendor/lib/libchromatix_ar1337_default_preview_bu64297.so
+vendor/lib/libchromatix_ar1337_default_video.so
+vendor/lib/libchromatix_ar1337_default_video_bu64297.so
+vendor/lib/libchromatix_ar1337_front_bokeh_cpp_preview.so
+vendor/lib/libchromatix_ar1337_front_bokeh_cpp_snapshot.so
+vendor/lib/libchromatix_ar1337_front_bokeh_preview.so
+vendor/lib/libchromatix_ar1337_front_bokeh_snapshot.so
+vendor/lib/libchromatix_ar1337_front_bokeh_zsl_preview_bu64297.so
+vendor/lib/libchromatix_ar1337_hfr_60.so
+vendor/lib/libchromatix_ar1337_hfr_60_bu64297.so
+vendor/lib/libchromatix_ar1337_hfr_90.so
+vendor/lib/libchromatix_ar1337_hfr_90_bu64297.so
+vendor/lib/libchromatix_ar1337_hfr_120.so
+vendor/lib/libchromatix_ar1337_hfr_120_bu64297.so
+vendor/lib/libchromatix_ar1337_postproc.so
+vendor/lib/libchromatix_ar1337_preview.so
+vendor/lib/libchromatix_ar1337_snapshot.so
+vendor/lib/libchromatix_ar1337_video_full.so
+vendor/lib/libchromatix_ar1337_zsl_preview_bu64297.so
+vendor/lib/libchromatix_ar1337_zsl_video_bu64297.so
 vendor/lib/libchromatix_gc5025_ofilm_13m_common.so
 vendor/lib/libchromatix_gc5025_ofilm_13m_cpp_ds_chromatix.so
 vendor/lib/libchromatix_gc5025_ofilm_13m_cpp_hfr_120.so
@@ -190,12 +222,36 @@ vendor/lib/libchromatix_ov13855_snapshot.so
 vendor/lib/libchromatix_ov13855_video_full.so
 vendor/lib/libchromatix_ov13855_zsl_preview_bu64297.so
 vendor/lib/libchromatix_ov13855_zsl_video_bu64297.so
+vendor/lib/libchromatix_s5k5e9yu05_common.so
+vendor/lib/libchromatix_s5k5e9yu05_cpp_hfr_60.so
+vendor/lib/libchromatix_s5k5e9yu05_cpp_hfr_90.so
+vendor/lib/libchromatix_s5k5e9yu05_cpp_hfr_120.so
+vendor/lib/libchromatix_s5k5e9yu05_cpp_liveshot.so
+vendor/lib/libchromatix_s5k5e9yu05_cpp_preview.so
+vendor/lib/libchromatix_s5k5e9yu05_cpp_snapshot.so
+vendor/lib/libchromatix_s5k5e9yu05_cpp_video.so
+vendor/lib/libchromatix_s5k5e9yu05_default_preview_3a.so
+vendor/lib/libchromatix_s5k5e9yu05_default_video.so
+vendor/lib/libchromatix_s5k5e9yu05_default_video_3a.so
+vendor/lib/libchromatix_s5k5e9yu05_hfr_60.so
+vendor/lib/libchromatix_s5k5e9yu05_hfr_60_3a.so
+vendor/lib/libchromatix_s5k5e9yu05_hfr_90.so
+vendor/lib/libchromatix_s5k5e9yu05_hfr_90_3a.so
+vendor/lib/libchromatix_s5k5e9yu05_hfr_120.so
+vendor/lib/libchromatix_s5k5e9yu05_hfr_120_3a.so
+vendor/lib/libchromatix_s5k5e9yu05_postproc.so
+vendor/lib/libchromatix_s5k5e9yu05_preview.so
+vendor/lib/libchromatix_s5k5e9yu05_snapshot.so
+vendor/lib/libchromatix_s5k5e9yu05_zsl_preview_3a.so
+vendor/lib/libchromatix_s5k5e9yu05_zsl_video_3a.so
 
 # Camera configs
 vendor/etc/camera/camera_config.xml
 vendor/etc/camera/gc5025_ofilm_13m_chromatix.xml
 vendor/etc/camera/imx486_chromatix.xml
 vendor/etc/camera/ov13855_chromatix.xml
+vendor/etc/camera/ar1337_chromatix.xml
+vendor/etc/camera/s5k5e9yu05_chromatix.xml
 
 # Camera firmware
 vendor/firmware/cpp_firmware_v1_12_0.fw
