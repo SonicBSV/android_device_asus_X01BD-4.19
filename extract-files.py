@@ -28,6 +28,12 @@ blob_fixups: blob_fixups_user_type = {
     # Camera - uneeded
     'vendor/lib/libmmcamera_tuning.so': blob_fixup()
         .remove_needed('libmm-qcamera.so'),
+    # Fingerprint - liblog dep.
+    'vendor/lib64/hw/cdfinger.fingerprint.default.so': blob_fixup()
+        .add_needed('liblog.so'),
+    # Fingerprint - so name fixups
+    'vendor/lib64/hw/cdfinger.fingerprint.default.so': blob_fixup()
+        .fix_soname(),        
 }  # fmt: skip
 
 # Define the module
