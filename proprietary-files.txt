@@ -22,6 +22,9 @@ vendor/etc/acdbdata/QRD/NonCE/QRD_NonCE_Handset_cal.acdb
 # Audio firmware
 vendor/firmware/tfa98xx.cnt
 
+# Camera-sensors - from S62Pro RKQ1.210406.002
+vendor/lib/libmmcamera_ppeiscore.so|f20cfbd3fc3408f9e98a9678fbc241e64482db64
+
 # Camera
 vendor/lib/dualcali_dump.bin
 vendor/lib/libdepthmapwrapper.so
@@ -29,8 +32,7 @@ vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
-vendor/lib/libmm-qcamera.so
-
+vendor/lib/libarcsoft_dualcam_refocus.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
 vendor/lib/libmmcamera2_frame_algorithm.so
@@ -47,7 +49,6 @@ vendor/lib/libmmcamera2_sensor_modules.so
 vendor/lib/libmmcamera2_stats_algorithm.so
 vendor/lib/libmmcamera2_stats_lib.so
 vendor/lib/libmmcamera2_stats_modules.so
-
 vendor/lib/libmmcamera_arcsoftbokeh_lib.so
 vendor/lib/libmmcamera_bokeh.so
 vendor/lib/libmmcamera_csidtg.so
@@ -85,7 +86,6 @@ vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
 vendor/lib/libmmcamera_tuning_lookup.so
 vendor/lib/libmmcamera_tuning.so
-
 vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
@@ -95,42 +95,7 @@ vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
 vendor/lib/libremosaic_daemon.so
-vendor/lib/libscveBlobDescriptor.so
-vendor/lib/libscveBlobDescriptor_stub.so
-vendor/lib/libscveCommon.so
-vendor/lib/libscveCommon_stub.so
-vendor/lib/libscveFaceRecognition.so
-vendor/lib/libscveObjectSegmentation.so
-vendor/lib/libscveObjectSegmentation_stub.so
-vendor/lib/libscveObjectTracker.so
-vendor/lib/libscveObjectTracker_stub.so
-vendor/lib/libscvePanorama.so
-vendor/lib/libscvePanorama_lite.so
-vendor/lib/libvideoutils.so
-
-vendor/lib64/libmmcamera2_frame_algorithm.so
-vendor/lib64/libmmcamera2_is.so
-vendor/lib64/libmmcamera2_q3a_core.so
-vendor/lib64/libmmcamera2_stats_algorithm.so
-vendor/lib64/libmmcamera2_stats_lib.so
-vendor/lib64/libmmcamera_dbg.so
-vendor/lib64/libmmcamera_faceproc2.so
-vendor/lib64/libmmcamera_faceproc.so
-vendor/lib64/libmmcamera_tintless_algo.so
-vendor/lib64/libmmcamera_tintless_bg_pca_algo.so
-
-vendor/lib64/libscveBlobDescriptor.so
-vendor/lib64/libscveBlobDescriptor_stub.so
-vendor/lib64/libscveCommon.so
-vendor/lib64/libscveCommon_stub.so
-vendor/lib64/libscveFaceRecognition.so
-vendor/lib64/libscveObjectSegmentation.so
-vendor/lib64/libscveObjectSegmentation_stub.so
-vendor/lib64/libscveObjectTracker.so
-vendor/lib64/libscveObjectTracker_stub.so
-vendor/lib64/libscvePanorama.so
-vendor/lib64/libscvePanorama_lite.so
-vendor/lib64/libvideoutils.so
+vendor/lib/libseemore.so
 
 # Camera Actuator
 vendor/lib/libactuator_imx486_holitech_12m.so
@@ -285,7 +250,6 @@ vendor/lib/libmmcamera_isp_sub_module.so
 vendor/firmware/Himax_firmware.bin|74a39087ed70f23f599822dc71c271832cdc4d40
 vendor/firmware/hx_criteria.csv|492a73805e93d3f5f851a949642003f7813b9e03
 vendor/firmware/novatek_ts_fw_v8D.bin|b3ecf4d7a6ba6915e45e9fb187723b81184a6c5e
-vendor/firmware/startup_fw_update.img|4fa915e672425ff91f98a21c9e8335e8055b6b46
 
 # DRM Widevine firmware
 vendor/firmware/widevine.b02
@@ -326,3 +290,6 @@ vendor/firmware/a530_pm4.fw
 
 # Sensors configs
 vendor/etc/sensors/sensor_def_qcomdev.conf
+vendor/bin/sensors.qti
+vendor/lib/sensors.ssc.so|e17e5d9c641a058b6d2df8ce8d6f8b2da83aa786
+vendor/lib64/sensors.ssc.so
