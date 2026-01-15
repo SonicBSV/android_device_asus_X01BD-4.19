@@ -60,6 +60,13 @@ on boot
 
     chown radio radio sys/module/stk3x3x/parameters/call_status_flag
 
+# Fingerprint
+service vendor.focaltech_script /vendor/bin/init.focaltech.sh
+    class late_start
+    user system
+    group system
+    oneshot
+
 on post-fs-data
     # Create directory for focaltech fingerprint
     mkdir /data/vendor/focaltech 0760 system system

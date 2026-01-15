@@ -1,0 +1,2 @@
+# Shell Script
+/(vendor|system/vendor)/bin/init\.focaltech\.sh	u:object_r:vendor_fp_init_exec:s0

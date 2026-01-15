@@ -24,7 +24,8 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.device.rc
+    init.device.rc \
+    init.focaltech.sh
 
 # Wifi
 PRODUCT_PACKAGES += \
