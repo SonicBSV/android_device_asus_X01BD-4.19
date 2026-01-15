@@ -1,75 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <device name="Android">
+    <!-- ╔══════════════════════════════════════════════════════════╗
+         ║  POWER PROFILE — ASUS X01BD (SDM660)                     ║
+         ║  Android 13+ / Android 14 compatible format              ║
+         ║  Display: 420 nits | Battery: 5000mAh                    ║
+         ║  CPU: Kryo 260 (4x Silver + 4x Gold) with OC support     ║
+         ╚══════════════════════════════════════════════════════════╝ -->
+
     <item name="none">0</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         DISPLAY — Android 13+ формат (per-display)
+         420 nits panel (confirmed from stock DTS)
+         ═══════════════════════════════════════════════════════════ -->
     <item name="ambient.on.display0">0.1</item>
     <item name="screen.on.display0">45.4</item>
     <item name="screen.full.display0">274</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         BLUETOOTH
+         ═══════════════════════════════════════════════════════════ -->
     <item name="bluetooth.active">3.08</item>
     <item name="bluetooth.on">0.53</item>
+    <item name="bluetooth.controller.idle">1.2</item>
+    <item name="bluetooth.controller.rx">5.5</item>
+    <item name="bluetooth.controller.tx">6.2</item>
+    <item name="bluetooth.controller.voltage">3300</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         WIFI
+         ═══════════════════════════════════════════════════════════ -->
     <item name="wifi.on">0.19</item>
     <item name="wifi.active">154.13</item>
     <item name="wifi.scan">26.66</item>
-    <item name="audio">14.86</item>
-    <item name="video">58.17</item>
-    <item name="camera.flashlight">150</item>
-    <item name="camera.avg">550</item>
-    <item name="gps.on">111.63</item>
-    <item name="radio.active">247.25</item>
-    <item name="radio.scanning">56.28</item>
-    <array name="radio.on">
-        <value>6.92</value>
-        <value>6.92</value>
+    <item name="wifi.controller.idle">2.5</item>
+    <item name="wifi.controller.rx">98</item>
+    <item name="wifi.controller.tx">150</item>
+    <array name="wifi.controller.tx_levels">
+        <value>150</value>
     </array>
-    <item name="modem.controller.idle">0</item>
-    <item name="modem.controller.rx">0</item>
-    <item name="modem.controller.tx">0</item>
-    <item name="modem.controller.voltage">0</item>
-    <array name="cpu.clusters.cores">
-        <value>4</value>
-        <value>4</value>
-    </array>
-    <array name="cpu.core_speeds.cluster0">
-        <value>633600</value>
-        <value>902400</value>
-        <value>1113600</value>
-        <value>1401600</value>
-        <value>1536000</value>
-        <value>1747200</value>
-        <value>1843200</value>
-    </array>
-    <array name="cpu.core_power.cluster0">
-        <value>31</value>
-        <value>61.5</value>
-        <value>68</value>
-        <value>79</value>
-        <value>98.6</value>
-        <value>110.6</value>
-        <value>117</value>
-    </array>
-    <array name="cpu.core_speeds.cluster1">
-        <value>1113600</value>
-        <value>1401600</value>
-        <value>1747200</value>
-        <value>1958400</value>
-        <value>2150400</value>
-        <value>2208000</value>
-    </array>
-    <array name="cpu.core_power.cluster1">
-        <value>124.4</value>
-        <value>156</value>
-        <value>210</value>
-        <value>260</value>
-        <value>309</value>
-        <value>362.5</value>
-    </array>
-    <item name="cpu.awake">13.7</item>
-    <item name="cpu.idle">4.5</item>
-    <item name="battery.capacity">5000</item>
-    <item name="wifi.controller.idle">0</item>
-    <item name="wifi.controller.rx">0</item>
-    <item name="wifi.controller.tx">0</item>
-    <array name="wifi.controller.tx_levels" />
-    <item name="wifi.controller.voltage">0</item>
+    <item name="wifi.controller.voltage">3700</item>
     <array name="wifi.batchedscan">
         <value>.0002</value>
         <value>.002</value>
@@ -77,5 +47,139 @@
         <value>.2</value>
         <value>2</value>
     </array>
-    <item name="bluetooth.controller.voltage">3300</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         AUDIO / VIDEO / CAMERA
+         ═══════════════════════════════════════════════════════════ -->
+    <item name="audio">14.86</item>
+    <item name="video">58.17</item>
+    <item name="camera.flashlight">150</item>
+    <item name="camera.avg">550</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         GPS
+         ═══════════════════════════════════════════════════════════ -->
+    <item name="gps.on">111.63</item>
+    <array name="gps.signalqualitybased">
+        <value>28</value>
+        <value>56</value>
+        <value>84</value>
+        <value>112</value>
+    </array>
+    <item name="gps.voltage">3700</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MODEM / RADIO — Android 13+ формат
+         ═══════════════════════════════════════════════════════════ -->
+    <item name="radio.active">247.25</item>
+    <item name="radio.scanning">56.28</item>
+    <array name="radio.on">
+        <value>6.92</value>
+        <value>6.92</value>
+    </array>
+
+    <!-- Modem controller (обязательно для Android 13+) -->
+    <item name="modem.controller.sleep">0</item>
+    <item name="modem.controller.idle">6.92</item>
+    <item name="modem.controller.rx">150</item>
+    <array name="modem.controller.tx">
+        <value>180</value>
+        <value>200</value>
+        <value>220</value>
+        <value>240</value>
+        <value>260</value>
+    </array>
+    <item name="modem.controller.voltage">3700</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         CPU — SDM660 (Kryo 260) с расширенными частотами + OC
+         
+         LITTLE: 4x Kryo 260 Silver (CPU0-3) @ 633-1843 MHz
+         BIG:    4x Kryo 260 Gold (CPU4-7) @ 825-2457 MHz (OC)
+         ═══════════════════════════════════════════════════════════ -->
+    <array name="cpu.clusters.cores">
+        <value>4</value>
+        <value>4</value>
+    </array>
+
+    <!-- LITTLE Cluster (CPU0-3) - Kryo 260 Silver -->
+    <array name="cpu.core_speeds.cluster0">
+        <value>633600</value>
+        <value>768000</value>
+        <value>902400</value>
+        <value>1036800</value>
+        <value>1113600</value>
+        <value>1248000</value>
+        <value>1401600</value>
+        <value>1536000</value>
+        <value>1632000</value>
+        <value>1747200</value>
+        <value>1843200</value>
+    </array>
+
+    <array name="cpu.core_power.cluster0">
+        <value>47</value>
+        <value>58</value>
+        <value>75</value>
+        <value>88</value>
+        <value>100</value>
+        <value>118</value>
+        <value>136</value>
+        <value>174</value>
+        <value>194</value>
+        <value>214</value>
+        <value>236</value>
+    </array>
+
+    <!-- BIG Cluster (CPU4-7) - Kryo 260 Gold + OC -->
+    <array name="cpu.core_speeds.cluster1">
+        <value>825600</value>
+        <value>1113600</value>
+        <value>1267200</value>
+        <value>1401600</value>
+        <value>1555200</value>
+        <value>1747200</value>
+        <value>1843200</value>
+        <value>1958400</value>
+        <value>2054400</value>
+        <value>2150400</value>
+        <value>2208000</value>
+        <value>2457600</value>
+    </array>
+
+    <array name="cpu.core_power.cluster1">
+        <value>180</value>
+        <value>270</value>
+        <value>310</value>
+        <value>350</value>
+        <value>420</value>
+        <value>513</value>
+        <value>580</value>
+        <value>670</value>
+        <value>735</value>
+        <value>803</value>
+        <value>979</value>
+        <value>1150</value>
+    </array>
+
+    <!-- CPU states -->
+    <item name="cpu.idle">4.5</item>
+    <item name="cpu.awake">13.7</item>
+    <item name="cpu.suspend">0.5</item>
+    <item name="cpu.active">100</item>
+
+    <!-- Cluster idle power -->
+    <item name="cpu.cluster_power.cluster0">2.5</item>
+    <item name="cpu.cluster_power.cluster1">3.5</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MEMORY
+         ═══════════════════════════════════════════════════════════ -->
+    <item name="memory.bandwidths">22000</item>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         BATTERY
+         ═══════════════════════════════════════════════════════════ -->
+    <item name="battery.capacity">5000</item>
+
 </device>
