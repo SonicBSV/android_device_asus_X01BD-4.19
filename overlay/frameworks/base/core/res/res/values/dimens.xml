@@ -1,30 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
- * Copyright (c) 2006, The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+/* Optimized for ASUS Zenfone Max Pro M2 (X01BD)
+** Resolution: 2280x1080 (19:9 with Notch)
+** Android 13 (crDroid)
+** Fix: Reduced excess status bar padding & Optimized for Notch
 */
 -->
 <resources>
-    <!-- Height of the status bar -->
-    <dimen name="status_bar_height">81.0px</dimen>
+    <!-- ========================================== -->
+    <!--          STATUS BAR & NOTCH                -->
+    <!-- ========================================== -->
 
-    <!-- Radius of the software rounded corners. -->
+    <!-- Exact physical height of the Notch (From Device Tree) -->
+    <dimen name="status_bar_height_portrait">81px</dimen>
+    <!-- Landscape usually sits beside notch, standard height is fine -->
+    <dimen name="status_bar_height_landscape">28dp</dimen>
+    
+    <dimen name="status_bar_height">@dimen/status_bar_height_portrait</dimen>
+    <dimen name="status_bar_height_default">@dimen/status_bar_height_portrait</dimen>
+
+    <!-- CRITICAL FIX: Control side padding manually -->
+    <!-- 8dp allows icons to be close to corners without being cut by the 103px curve -->
+    <dimen name="status_bar_padding_start">8dp</dimen>
+    <dimen name="status_bar_padding_end">8dp</dimen>
+    <dimen name="status_bar_padding_top">0dp</dimen>
+
+    <!-- QS Offset (Status Bar + Header Padding) -->
+    <dimen name="quick_qs_offset_height">60dp</dimen>
+
+    <!-- Touch area around the notch -->
+    <dimen name="display_cutout_touchable_region_size">81px</dimen>
+
+    <!-- ========================================== -->
+    <!--          ROUNDED CORNERS                   -->
+    <!-- ========================================== -->
+
+    <!-- Physical corner radius (From Device Tree) -->
     <dimen name="rounded_corner_radius">103px</dimen>
-	
-    <!-- Misc -->
-    <dimen name="config_dialogCornerRadius">10dip</dimen>
-    <dimen name="config_buttonCornerRadius">5dip</dimen>
-    <dimen name="dialog_corner_radius">10dip</dimen>
-    <dimen name="config_progressBarCornerRadius">1000dip</dimen>
+    <dimen name="rounded_corner_radius_top">103px</dimen>
+    <dimen name="rounded_corner_radius_bottom">103px</dimen>
+
+    <dimen name="rounded_corner_radius_adjustment">0px</dimen>
+    <dimen name="rounded_corner_radius_top_adjustment">0px</dimen>
+    <dimen name="rounded_corner_radius_bottom_adjustment">0px</dimen>
+
+    <!-- Reduced content padding (was 16dp, now 8dp to reclaim space) -->
+    <dimen name="rounded_corner_content_padding">8dp</dimen>
+
+    <!-- ========================================== -->
+    <!--          UI ELEMENTS                       -->
+    <!-- ========================================== -->
+
+    <!-- Status Bar Icons -->
+    <dimen name="status_bar_icon_size">22dip</dimen>
+    <dimen name="status_bar_system_icon_size">15dp</dimen>
+    <dimen name="status_bar_system_icon_intrinsic_size">17dp</dimen>
+    <dimen name="status_bar_content_number_size">48sp</dimen>
+    <dimen name="status_bar_edge_ignore">5dp</dimen>
+
+    <!-- Navigation Bar -->
+    <dimen name="navigation_bar_height">48dp</dimen>
+    <dimen name="navigation_bar_height_landscape">48dp</dimen>
+    <dimen name="navigation_bar_width">48dp</dimen>
+    <dimen name="taskbar_frame_height">60dp</dimen>
+    <dimen name="system_gestures_start_threshold">24dp</dimen>
+    <dimen name="navigation_bar_frame_height">@dimen/navigation_bar_height</dimen>
+    <dimen name="navigation_bar_frame_height_landscape">@dimen/navigation_bar_frame_height</dimen>
+    <dimen name="navigation_bar_gesture_height">@dimen/navigation_bar_frame_height</dimen>
+    <dimen name="navigation_bar_gesture_larger_height">80dp</dimen>
+    <dimen name="navigation_bar_height_car_mode">96dp</dimen>
+    <dimen name="navigation_bar_width_car_mode">96dp</dimen>
+
+    <!-- Toasts -->
+    <dimen name="toast_y_offset">64dp</dimen>
+    <dimen name="toast_width">300dp</dimen>
+    <dimen name="toast_text_size">14sp</dimen>
+    <dimen name="toast_elevation">2dp</dimen>
+
+    <!-- IME & Keyboard -->
+    <dimen name="input_method_navigation_key_width">70dp</dimen>
+    <dimen name="input_method_navigation_key_padding">0dp</dimen>
+    <dimen name="input_method_nav_content_padding">0px</dimen>
+    <dimen name="input_method_nav_key_button_ripple_max_width">95dp</dimen>
+
+    <!-- Thumbnails -->
+    <dimen name="thumbnail_width">192dp</dimen>
+    <dimen name="thumbnail_height">192dp</dimen>
+    <item name="thumbnail_fullscreen_scale" type="fraction">60%</item>
+    <dimen name="app_icon_size">48dip</dimen>
+
+    <!-- Notifications -->
+    <dimen name="notification_content_margin_start">52dp</dimen>
+    <dimen name="notification_content_margin_end">16dp</dimen>
+    <dimen name="notification_heading_margin_end">56dp</dimen>
+    <dimen name="notification_header_height">56dp</dimen>
+    <dimen name="notification_action_button_radius">18dp</dimen>
+    <dimen name="notification_small_icon_size">24dp</dimen>
+
+    <!-- Dialogs (Material You Style) -->
+    <dimen name="config_dialogCornerRadius">28dp</dimen>
+    <dimen name="dialog_corner_radius">28dp</dimen>
+    <dimen name="config_buttonCornerRadius">4dp</dimen>
+    <dimen name="config_progressBarCornerRadius">1000dp</dimen>
+    <dimen name="alert_dialog_round_padding">27dip</dimen>
+    <dimen name="dialog_padding">16dp</dimen>
+    <item type="dimen" name="dialog_min_width_major">65%</item>
+    <item type="dimen" name="dialog_min_width_minor">95%</item>
+
+    <!-- Preference Padding -->
+    <dimen name="preference_screen_side_margin">0dp</dimen>
+    <dimen name="preference_screen_side_margin_negative">0dp</dimen>
+    <dimen name="preference_fragment_padding_side">16dp</dimen>
+
+    <!-- Lockscreen -->
+    <dimen name="keyguard_lockscreen_clock_font_size">80dip</dimen>
+    <dimen name="keyguard_lockscreen_pin_margin_left">40dip</dimen>
+    <dimen name="kg_status_clock_font_size">75dp</dimen>
+    <dimen name="kg_status_date_font_size">15dp</dimen>
+
+    <!-- Volume -->
+    <dimen name="config_globalActionsKeyTimeout">500</dimen>
+
+    <!-- Pip -->
+    <dimen name="pip_minimized_visible_size">48dp</dimen>
+
+    <!-- Multi-Window -->
+    <dimen name="docked_stack_divider_thickness">48dp</dimen>
+    <dimen name="docked_stack_divider_insets">19dp</dimen>
+    <dimen name="docked_stack_minimize_thickness">8dp</dimen>
+
 </resources>
