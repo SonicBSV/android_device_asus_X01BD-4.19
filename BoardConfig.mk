@@ -20,7 +20,8 @@ TARGET_BOOTLOADER_BOARD_NAME := sdm660
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
 # Kernel
-TARGET_KERNEL_CONFIG := asus/X01BD_defconfig
+TARGET_KERNEL_CONFIG := vendor/asus/X01BD_defconfig
+#TARGET_KERNEL_CONFIG := vendor/debugfs.config
 TARGET_KERNEL_BUILD_HOST := beastmachine
 TARGET_KERNEL_BUILD_USER := "SonicBSV"
 
