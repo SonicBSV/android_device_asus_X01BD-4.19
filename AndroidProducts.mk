@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_X01BD.mk
+    $(LOCAL_DIR)/bliss_X01BD.mk
