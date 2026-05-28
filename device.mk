@@ -22,6 +22,10 @@ PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
 PRODUCT_PACKAGES += \
     NoCutoutOverlay
 
+# PowerHal
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/powerhint-sdm660.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 # Ramdisk
 PRODUCT_PACKAGES += \
     init.device.rc \
