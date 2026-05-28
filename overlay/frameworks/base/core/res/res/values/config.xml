@@ -1,69 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <!--
-/**
- * Copyright (c) 2009, The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+╔══════════════════════════════════════════════════════════════════════════╗
+║  crDroid Android 16 — Device overlay                                   ║
+║  Устройство: ASUS Zenfone Max Pro M2                                   ║
+║  Модель: X01BD                                                         ║
+║  Базовый overlay: common                                               ║
+║                                                                          ║
+║  Назначение:                                                             ║
+║  - переопределение ресурсов памяти и геометрии выреза;                  ║
+║  - автояркость и калибровка яркости общие с X00TD: до 420 нит;          ║
+║  - универсальная работа на X01BD с 3 / 4 / 6 ГБ ОЗУ.                    ║
+╚══════════════════════════════════════════════════════════════════════════╝
 -->
 
-<!-- These resources are around just to allow their values to be customized
-     for different hardware and product builds.  Do not translate. -->
+<resources>
 
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- ═══════════════════════════════════════════════════════════════
+         DISPLAY CUTOUT / ROUNDED CORNERS: X01BD
+         ═══════════════════════════════════════════════════════════════ -->
 
-    <!-- Vibrator pattern for feedback about a long screen/key press -->
-    <integer-array name="config_longPressVibePattern">
-        <item>0</item>
-        <item>50</item>
-        <item>60</item>
-        <item>61</item>
-    </integer-array>
-
-    <!-- Vibrator pattern for feedback about touching a virtual key -->
-    <integer-array name="config_virtualKeyVibePattern">
-        <item>0</item>
-        <item>100</item>
-        <item>20</item>
-        <item>30</item>
-    </integer-array>
-
-    <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
-    <integer-array name="config_keyboardTapVibePattern">
-        <item>40</item>
-    </integer-array>
-
+    <bool name="config_supportsRoundedCornersOnWindows">true</bool>
     <bool name="config_fillMainBuiltInDisplayCutout">true</bool>
+    <bool name="config_sustainedPerformanceModeSupported">true</bool>
 
-    <!-- The bounding path of the cutout region of the main built-in display.
-         Must either be empty if there is no cutout region, or a string that is parsable by
-         {@link android.util.PathParser}.
-         The path is assumed to be specified in display coordinates with pixel units and in
-         the display's native orientation, with the origin of the coordinate system at the
-         center top of the display. Optionally, you can append either `@left` or `@right` to the
-         end of the path string, in order to change the path origin to either the top left,
-         or top right of the display.
-         To facilitate writing device-independent emulation overlays, the marker `@dp` can be
-         appended after the path string to interpret coordinates in dp instead of px units.
-         Note that a physical cutout should be configured in pixels for the best results.
-         Example for a 10px x 10px square top-center cutout:
-                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z</string>
-         Example for a 10dp x 10dp square top-center cutout:
-                <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
-         @see https://www.w3.org/TR/SVG/paths.html#PathData
-         -->
+    <!-- Геометрия выреза верхней встроенной панели -->
     <string translatable="false" name="config_mainBuiltInDisplayCutout">
-         M -204.49219 0.00390625 
+         M -204.49219 0.00390625
          C -188.47266 0.00390625 -178.82296 8.8348878 -177.21875 10.197266
          C -171.2688 15.250266 -169.66752 18.090631 -167.36133 20.574219
          C -165.05514 23.057808 -160.48531 30.837561 -159.10547 33.158203
@@ -82,9 +45,22 @@
          C 160.50093 30.837561 165.07076 23.057808 167.37695 20.574219
          C 169.68314 18.090631 171.28443 15.250266 177.23438 10.197266
          C 178.83858 8.834888 188.48828 0.00390625 204.50781 0.00390625
-         L 0.015625 0.00390625 
-         L 0 0.00390625 
+         L 0.015625 0.00390625
+         L 0 0.00390625
          L -204.49219 0.00390625
          Z
     </string>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+         MEMORY: слегка более свободный профиль для X01BD
+         ═══════════════════════════════════════════════════════════════ -->
+
+    <integer name="config_extraFreeKbytesAdjust">6144</integer>
+    <integer name="config_customizedMaxCachedProcesses">36</integer>
+
+    <integer name="config_pinnerHomePinBytes">29360128</integer>      <!-- 28 МБ -->
+    <integer name="config_pinnerCameraPinBytes">37748736</integer>    <!-- 36 МБ -->
+
+    <integer name="config_maxNumVisibleRecentTasks">14</integer>
+
 </resources>
