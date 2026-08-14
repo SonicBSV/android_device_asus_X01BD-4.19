@@ -50,17 +50,26 @@
          L -204.49219 0.00390625
          Z
     </string>
+    
+    <!-- Vibrator pattern for feedback about a long screen/key press -->
+    <integer-array name="config_longPressVibePattern">
+        <item>0</item>
+        <item>50</item>
+        <item>60</item>
+        <item>61</item>
+    </integer-array>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         MEMORY: слегка более свободный профиль для X01BD
-         ═══════════════════════════════════════════════════════════════ -->
+    <!-- Vibrator pattern for feedback about touching a virtual key -->
+    <integer-array name="config_virtualKeyVibePattern">
+        <item>0</item>
+        <item>100</item>
+        <item>20</item>
+        <item>30</item>
+    </integer-array>
 
-    <integer name="config_extraFreeKbytesAdjust">6144</integer>
-    <integer name="config_customizedMaxCachedProcesses">36</integer>
-
-    <integer name="config_pinnerHomePinBytes">29360128</integer>      <!-- 28 МБ -->
-    <integer name="config_pinnerCameraPinBytes">37748736</integer>    <!-- 36 МБ -->
-
-    <integer name="config_maxNumVisibleRecentTasks">14</integer>
+    <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
+    <integer-array name="config_keyboardTapVibePattern">
+        <item>40</item>
+    </integer-array>
 
 </resources>
