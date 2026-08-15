@@ -1,43 +1,49 @@
-# Copyright (c) 2020, The Linux Foundation. All rights reserved.
+# ASUS X01BD / Snapdragon 660
 #
-# Redistribution and use in source and binary forms, with or without
-# modification, are permitted provided that the following conditions are
-# met:
-#     * Redistributions of source code must retain the above copyright
-#       notice, this list of conditions and the following disclaimer.
-#     * Redistributions in binary form must reproduce the above
-#       copyright notice, this list of conditions and the following
-#       disclaimer in the documentation and/or other materials provided
-#       with the distribution.
-#     * Neither the name of The Linux Foundation nor the names of its
-#       contributors may be used to endorse or promote products derived
-#       from this software without specific prior written permission.
+# Correct topology:
+#   policy0 = cpu0-3 = LITTLE
+#   policy4 = cpu4-7 = BIG
 #
-# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-# MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-# ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-# BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-# BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-# OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-# IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-#
-#
+# Assumes kernel is already unlocked/fixed to expose 2208000 on BIG cluster.
+# If kernel still reports 1958400, replace 2208000 with 1958400.
+
+on late-init
+    wait /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 10
+    wait /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 10
+
+    # LITTLE: policy0 / cpu0-3
+    # SDM660 little max = 1843200
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 633600
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 1843200
+
+    # BIG: policy4 / cpu4-7
+    # SDM660 big max = 2208000
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 1113600
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 2208000
+
+on fs
+    # CDSP FastRPC shell
+    mkdir /mnt/vendor/dsp 0770 root root
+    copy /vendor/dsp/cdsp/fastrpc_shell_3 /mnt/vendor/dsp/fastrpc_shell_3
+    chmod 0644 /mnt/vendor/dsp/fastrpc_shell_3
+    mount none /mnt/vendor/dsp/fastrpc_shell_3 /vendor/dsp/cdsp/fastrpc_shell_3 bind
+
 on early-boot
-     chown system system /dev/input/event3  # stk3x3x-light
-     chown system system /dev/input/event4  # stk3x3x-proximity
-     
+    # NOTE:
+    # event numbers can be fragile across kernels/builds.
+    # If possible, move these permissions to ueventd.rc later.
+    chown system system /dev/input/event3
+    chown system system /dev/input/event4
+
 on boot
-    # Permissions for stk3x3x promiximity and light sensors
+    # stk3x3x proximity sensor permissions
     chmod 0644 /sys/class/sensors/stk3x3x-proximity/sensors_enable
     chmod 0644 /sys/class/sensors/stk3x3x-proximity/sensors_delay
     chmod 0644 /sys/class/sensors/stk3x3x-proximity/sensors_calibrate
     chmod 0644 /sys/class/sensors/stk3x3x-proximity/sensors_enable_wakeup
     chmod 0644 /sys/class/sensors/stk3x3x-proximity/sensors_flush
     chmod 0644 /sys/class/sensors/stk3x3x-proximity/sensors_name
+
     chown system system /sys/class/sensors/stk3x3x-proximity/sensors_enable
     chown system system /sys/class/sensors/stk3x3x-proximity/sensors_delay
     chown system system /sys/class/sensors/stk3x3x-proximity/sensors_calibrate
@@ -45,12 +51,14 @@ on boot
     chown system system /sys/class/sensors/stk3x3x-proximity/sensors_flush
     chown system system /sys/class/sensors/stk3x3x-proximity/sensors_name
 
+    # stk3x3x light sensor permissions
     chmod 0644 /sys/class/sensors/stk3x3x-light/sensors_enable
     chmod 0644 /sys/class/sensors/stk3x3x-light/sensors_delay
     chmod 0644 /sys/class/sensors/stk3x3x-light/sensors_calibrate
     chmod 0644 /sys/class/sensors/stk3x3x-light/sensors_enable_wakeup
     chmod 0644 /sys/class/sensors/stk3x3x-light/sensors_flush
     chmod 0644 /sys/class/sensors/stk3x3x-light/sensors_name
+
     chown system system /sys/class/sensors/stk3x3x-light/sensors_enable
     chown system system /sys/class/sensors/stk3x3x-light/sensors_delay
     chown system system /sys/class/sensors/stk3x3x-light/sensors_calibrate
@@ -58,7 +66,7 @@ on boot
     chown system system /sys/class/sensors/stk3x3x-light/sensors_flush
     chown system system /sys/class/sensors/stk3x3x-light/sensors_name
 
-    chown radio radio sys/module/stk3x3x/parameters/call_status_flag
+    chown radio radio /sys/module/stk3x3x/parameters/call_status_flag
 
 # Fingerprint
 service vendor.focaltech_script /vendor/bin/init.focaltech.sh
@@ -68,6 +76,5 @@ service vendor.focaltech_script /vendor/bin/init.focaltech.sh
     oneshot
 
 on post-fs-data
-    # Create directory for focaltech fingerprint
     mkdir /data/vendor/focaltech 0760 system system
     restorecon /data/vendor/focaltech
