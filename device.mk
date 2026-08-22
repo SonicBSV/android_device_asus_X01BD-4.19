@@ -24,7 +24,7 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    init.device.rc \
+    init.asus.X01BD.rc \
     init.focaltech.sh
 
 # Wifi
